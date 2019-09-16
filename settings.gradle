@@ -1,0 +1,3 @@
+rootProject.name = 'sRPC'
+include 'srpc-00'
+

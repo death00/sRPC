@@ -1,0 +1,81 @@
+group 'com.death00.sRPC'
+version '1.0-SNAPSHOT'
+
+task wrapper(type: Wrapper) {
+    gradleVersion = "4.4"
+    distributionType = org.gradle.api.tasks.wrapper.Wrapper.DistributionType.ALL
+}
+
+subprojects {
+    apply plugin: "java"
+    apply plugin: "idea"
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    tasks.withType(JavaCompile) { task ->
+        task.options.encoding = 'UTF-8'
+    }
+
+    ext {
+        apacheCommonsVersion = "1.8.3"
+        commonsLang3Version = "3.7"
+        bouncycastleVersion = "1.46"
+        disruptorVersion = "3.4.2"
+        guavaVersion = "24.1-jre"
+        gsonVersion = "2.8.2"
+        httpClientVersion = "4.5.5"
+        httpAsyncClientVersion = "4.1.3"
+        jedisVersion = "2.9.0"
+        jodaTimeVersion = "2.10"
+        jolokiaVersion = "1.5.0"
+        nettyVersion = "4.1.22.Final"
+        protobufVersion = "3.5.1"
+        springVersion = "5.0.6.RELEASE"
+        springBootVersion = "2.0.4.RELEASE"
+        springDataMongoDB = "2.0.9.RELEASE"
+
+        log4jVersion = "1.2.17"
+        slf4jVersion = "1.7.21"
+
+        hamcrestVersion = "1.3"
+        groboutilsVersion = "5"
+        junitVersion = "4.12"
+        mockitoVersion = "2.18.3"
+
+        fastjsonVersion = "1.2.54"
+        xstreamVersion = "1.4.10"
+        dataFormatXmlVersion = "2.9.6"
+        commonTestVersion = "1.6"
+        aliyunOssVersuib = "2.8.3"
+        aliyunOssSts = "3.0.0"
+        aliyunOssCore = "3.5.0"
+        jwtVersion = "0.9.1"
+        lombokVersion = "1.18.4"
+        jedisVersion = "2.9.0"
+    }
+
+    repositories {
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public" }
+        // GroboUtils repository:
+        maven { url "http://download.osgeo.org/webdav/geotools/" }
+        mavenCentral()
+    }
+
+    dependencies {
+        compile "com.google.guava:guava:${guavaVersion}"
+        compile "org.slf4j:slf4j-api:${slf4jVersion}"
+        compile "org.slf4j:slf4j-log4j12:${slf4jVersion}"
+        compile "log4j:log4j:${log4jVersion}"
+        compile "org.projectlombok:lombok:${lombokVersion}"
+        compile "io.netty:netty-all:${nettyVersion}"
+        compile "com.google.code.gson:gson:${gsonVersion}"
+
+        testCompile "junit:junit:${junitVersion}"
+        testCompile "net.sourceforge.groboutils:groboutils-core:${groboutilsVersion}"
+        testCompile "org.hamcrest:hamcrest-all:${hamcrestVersion}"
+        testCompile "org.mockito:mockito-core:${mockitoVersion}"
+        testCompile "org.springframework:spring-test:${springVersion}"
+        testCompile "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
+    }
+}
