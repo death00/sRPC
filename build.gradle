@@ -64,9 +64,11 @@ subprojects {
 
     dependencies {
         compile "com.google.guava:guava:${guavaVersion}"
+
         compile "org.slf4j:slf4j-api:${slf4jVersion}"
         compile "org.slf4j:slf4j-log4j12:${slf4jVersion}"
         compile "log4j:log4j:${log4jVersion}"
+
         compile "org.projectlombok:lombok:${lombokVersion}"
         compile "io.netty:netty-all:${nettyVersion}"
         compile "com.google.code.gson:gson:${gsonVersion}"

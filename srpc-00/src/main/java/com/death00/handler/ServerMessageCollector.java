@@ -22,7 +22,7 @@ import org.slf4j.LoggerFactory;
 @Sharable
 public class ServerMessageCollector extends ChannelInboundHandlerAdapter {
 
-    private final static Logger LOG = LoggerFactory.getLogger(ServerMessageCollector.class);
+    private final static Logger LOGGER = LoggerFactory.getLogger(ServerMessageCollector.class);
 
     private ThreadPoolExecutor executor;
     private MessageHandlers handlers;
@@ -60,12 +60,12 @@ public class ServerMessageCollector extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        LOG.debug("connection comes");
+        LOGGER.debug("connection comes");
     }
 
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-        LOG.debug("connection leaves");
+        LOGGER.debug("connection leaves");
     }
 
     @Override
@@ -96,7 +96,7 @@ public class ServerMessageCollector extends ChannelInboundHandlerAdapter {
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-        LOG.warn("connection error", cause);
+        LOGGER.warn("connection error", cause);
     }
 
 }

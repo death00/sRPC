@@ -4,6 +4,7 @@ import com.death00.client.RPCClient;
 import com.death00.exception.RPCException;
 import com.death00.request.ExpRequest;
 import com.death00.response.ExpResponse;
+import org.apache.log4j.PropertyConfigurator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,6 +32,13 @@ public class DemoClient {
     }
 
     public static void main(String[] args) throws InterruptedException {
+        String basePath = System.getenv("SERV_BASE");
+        PropertyConfigurator.configure(basePath + "/demoClient.properties");
+        PropertyConfigurator.configureAndWatch(
+                basePath + "/demoClient.properties",
+                2000
+        );
+
         RPCClient client = new RPCClient("localhost", 8888);
         DemoClient demo = new DemoClient(client);
         for (int i = 0; i < 30; i++) {

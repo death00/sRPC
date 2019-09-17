@@ -27,7 +27,7 @@ import org.slf4j.LoggerFactory;
  */
 public class RPCClient {
 
-    private final static Logger LOG = LoggerFactory.getLogger(RPCClient.class);
+    private final static Logger LOGGER = LoggerFactory.getLogger(RPCClient.class);
 
     private String ip;
     private int port;
@@ -111,7 +111,7 @@ public class RPCClient {
                     reconnect();
                 }, 1, TimeUnit.SECONDS);
             }
-            LOG.error("connect {}:{} failure", ip, port, future.cause());
+            LOGGER.error("connect {}:{} failure", ip, port, future.cause());
         });
     }
 
